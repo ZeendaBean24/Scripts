@@ -16,17 +16,20 @@ def get_repo_contents(repo_path, path='', token=''):
     else:
         return None
 
-def list_all_contents(repo_path, path='', token='', indent=0):
-    """Recursively lists all folders, subfolders, and files in a GitHub repository."""
+def list_all_contents(repo_path, path='', token='', level=1):
+    """Recursively lists all folders, subfolders, and files in a GitHub repository in Markdown format."""
     contents = get_repo_contents(repo_path, path, token)
     if contents:
         for item in contents:
             if item['name'] not in ['.gitignore', '_template.cpp']:  # Skip specific files
-                print(" " * indent + item['name'])
-                if item['type'] == 'dir':  # If the item is a directory, recurse into it
-                    list_all_contents(repo_path, item['path'], token, indent + 2)
+                prefix = '#' * level
+                if item['type'] == 'dir':
+                    print(f"{prefix} {item['name']}")
+                    list_all_contents(repo_path, item['path'], token, level + 1)
+                else:
+                    print(f"- [x] {item['name']}")
 
-# Fetch and print repository contents
+# Fetch and print repository contents in Markdown format
 token = os.getenv('GITHUB_TOKEN')
 repo_path = 'ZeendaBean24/KitchenV2'
 
