@@ -27,7 +27,12 @@ def list_all_contents(repo_path, path='', token='', level=1):
                     print(f"{prefix} {item['name']}")
                     list_all_contents(repo_path, item['path'], token, level + 1)
                 else:
-                    print(f"- [x] {item['name']}")
+                    file_name = item['name']
+                    if file_name.endswith('.cpp'):
+                        file_path = f"https://github.com/{repo_path}/blob/master/{item['path']}"
+                        print(f"- [x] [{file_name}]({file_path})")
+                    else:
+                        print(f"- [x] {file_name}")
 
 # Fetch and print repository contents in Markdown format
 token = os.getenv('GITHUB_TOKEN')
