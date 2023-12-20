@@ -1,6 +1,7 @@
 # Dependencies
 * `pip install requests`
 * `pip install python-dotenv`
+* `pip install pyperclip`
 ---
 # Version History
 ## Dec. 2023
