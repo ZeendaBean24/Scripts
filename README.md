@@ -8,3 +8,4 @@
 * **Github Script** by Zeen Liu
 	* **_Short Description_**: Extract a Github repository hierarchy with all folders and files, including hyperlinks to all files. Prints it out in a markdown (.MD) format as it is the most accessible. 
 	* **_Automation Purpose_**: Used by `KitchenV2` to track Competitive Programming
+ 	* **_Performance_**: `~ 5-10 seconds`
