@@ -50,3 +50,4 @@ output_text = '\n'.join(output_list)
 # Copy the output to the clipboard
 pyperclip.copy(output_text)
 print("Markdown content has been copied to the clipboard.")
+print("REMINDER: GIT PULL RIGHT AFTER COMMITTING THE CHANGES ON GITHUB")
