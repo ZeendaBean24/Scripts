@@ -44,8 +44,14 @@ repo_path = 'ZeendaBean24/KitchenV2'
 
 output_list = list_all_contents(repo_path, token=token)
 
-# Join the output list into a string with newlines
-output_text = '\n'.join(output_list)
+# Prepend the required Markdown header
+header = "# Competitive Programming\n---\n## Junior Training Sheet: [Link](https://docs.google.com/spreadsheets/d/1b5Z5IgLR7RHhMNnnS_nccTdA33M0H4g9JeX6LME3wHQ/edit?usp=sharing)\n---"
+
+# Append the closing '---'
+footer = "---"
+
+# Join the output list into a string with newlines and add the header and footer
+output_text = header + '\n' + '\n'.join(output_list) + '\n' + footer
 
 # Copy the output to the clipboard
 pyperclip.copy(output_text)
